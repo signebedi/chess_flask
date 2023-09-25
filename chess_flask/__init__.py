@@ -19,9 +19,8 @@ class Move(db.Model):
     uci = db.Column(db.String(10))
     game_id = db.Column(db.Integer, db.ForeignKey('game.id'))
 
-db.create_all()
-
-
+with app.app_context():
+    db.create_all()
 
 @app.route('/game', methods=['POST'])
 def create_game():
