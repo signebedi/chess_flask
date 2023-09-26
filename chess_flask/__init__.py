@@ -77,7 +77,7 @@ def get_position(game_id, move_number):
     for move in game.moves[:move_number]:
         board.push_uci(move.uci)
 
-    return jsonify({'position': board.fen()}), 200
+    return jsonify({'position': board.fen(), 'board':str(board)}), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
